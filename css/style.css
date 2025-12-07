@@ -1,0 +1,49 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 1.25rem;
+}
+
+h1 {
+  text-align: center;
+}
+
+ul {
+    list-style-position: inside;
+    padding-left: 1rem;
+}
+
+main {
+  width: 100%;
+  display: flex; 
+  justify-content: center;
+}
+
+section {
+    flex-basis: 95%;
+}
+
+@media (min-width: 640px) {
+  /* sm */
+  section {
+    flex-basis: 80%;
+  }
+}
+
+@media (min-width: 768px) {
+  /* md */
+  section {
+    flex-basis: 70%;
+  }
+}
+
+@media (min-width: 1024px) {
+  /* lg */
+  section {
+    flex-basis: 60%;
+  }
+}
