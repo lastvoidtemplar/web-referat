@@ -4,46 +4,154 @@
   box-sizing: border-box;
 }
 
-html {
+:root {
+  --main-background-color: #0a0e14;
+  --main-text-color: #e6e1cf;
+  --main-highlight-color: #ffcc66;
+  --main-link-color: #39bae6;
+
+  --aside-background-color: #0f131a;
+  --aside-text-color: #5c6773;
+
+  --heading-text-color: #e6e1cf;
+}
+
+body {
   font-size: 1.25rem;
 }
 
-h1 {
+header {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+
   text-align: center;
+  background-color: var(--main-background-color);
+  color: var(--main-text-color);
+}
+
+aside {
+  display: none;
+  padding: 2rem;
+
+  background-color: var(--aside-background-color);
+  color: var(--aside-text-color);
+
+  a {
+    background-color: var(--aside-background-color);
+    color: var(--aside-text-color);
+  }
 }
 
 ul {
-    list-style-position: inside;
-    padding-left: 1rem;
+  list-style-position: inside;
+  padding-left: 1rem;
 }
 
 main {
   width: 100%;
-  display: flex; 
-  justify-content: center;
+  margin: auto;
+  border-top: 1px solid var(--aside-text-color);
+  border-bottom: 1px solid var(--aside-text-color);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  background-color: var(--main-background-color);
+  color: var(--main-text-color);
+
+  a {
+    color: var(--main-link-color);
+  }
+}
+
+footer {
+  background-color: var(--main-background-color);
+  color: var(--main-text-color);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  padding: 0.5rem 0;
+  color: var(--heading-text-color);
+}
+
+hr {
+  width: 75%;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+
+  height: 2px;
+  background-color: var(--main-text-color);
 }
 
 section {
-    flex-basis: 95%;
+  width: 95%;
+}
+
+strong,
+b {
+  color: var(--main-highlight-color);
+}
+
+img {
+  width: 95%;
+  margin: 1rem 2.5%;
 }
 
 @media (min-width: 640px) {
   /* sm */
   section {
-    flex-basis: 80%;
+    width: 80%;
   }
 }
 
 @media (min-width: 768px) {
   /* md */
   section {
-    flex-basis: 70%;
+    width: 65%;
   }
 }
 
 @media (min-width: 1024px) {
   /* lg */
+  body {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: auto 1fr;
+    grid-template-areas:
+      "aside header"
+      "aside main"
+      "aside footer";
+  }
+
+  header {
+    grid-area: header;
+  }
+
+  aside {
+    display: block;
+    grid-area: aside;
+    top: 0;
+    position: sticky;
+    height: 100vh;
+    align-self: start;
+  }
+
+  main {
+    grid-area: main;
+    width: 100%;
+  }
+
   section {
-    flex-basis: 60%;
+    width: 50%;
+  }
+
+  footer {
+    grid-area: footer;
   }
 }
