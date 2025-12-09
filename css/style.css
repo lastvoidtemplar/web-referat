@@ -296,3 +296,32 @@ b {
     margin-top: 0;
   }
 }
+
+#greet-form {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "inputs result"
+    "btn btn";
+
+  div {
+    padding: 0.5rem;
+    grid-area: inputs;
+    display: flex;
+    flex-direction: column;
+  }
+
+  p {
+    grid-area: result;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  button {
+    grid-area: btn;
+    margin: 0.5rem;
+    margin-top: 0;
+  }
+}

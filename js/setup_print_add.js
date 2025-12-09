@@ -23,7 +23,7 @@ async function init() {
 
 const printAddForm = document.getElementById("print-add-form");
 const resultP = printAddForm.querySelector("p#result");
-const printAddBtn = printAddForm.querySelector("button")
+const printAddBtn = printAddForm.querySelector("button");
 
 function print(sum) {
   resultP.innerText = `Result: ${sum}`;
