@@ -3,6 +3,7 @@ import wasm from "./highlight/languages/wasm.min.js";
 import setupPrintAdd from "./setup_print_add.js";
 import setupFibb from "./setup_fibb.js";
 import setupGreet from "./setup_greet.js";
+import setup8Puzzle from "./setup_8_puzzle.js";
 
 hljs.registerLanguage("wasm", wasm);
 
@@ -13,3 +14,5 @@ document.addEventListener("DOMContentLoaded", () => {
 await setupPrintAdd();
 await setupFibb();
 await setupGreet()
+await setup8Puzzle()
+

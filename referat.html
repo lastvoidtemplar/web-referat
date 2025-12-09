@@ -46,7 +46,7 @@
           <li>
             <a href="#wasm-as-compilation-target">
               WebAssembly като цел за компилация
-            </a >
+            </a>
           </li>
         </ol>
       </nav>
@@ -977,8 +977,63 @@
       <hr />
       <section id="wasm-as-compilation-target">
         <h2>WebAssembly като цел за компилация</h2>
+        <p>
+          В секция <a href="#wat">Wat</a> разгледахме няколко примера за Wasm,
+          но също можем да забележим, че кода става доста труден за четене дори
+          за прости програми с една или две функции. На практика почти никой не
+          пише Wasm на ръка. Вместо това използват други езици, които могат да
+          се компилират да WebAssembly. В момента за почти всеки от известените
+          езици съществува компилатор за Wasm, но езиците, които най-често се
+          ползват са C++ и Rust.
+        </p>
+        <br />
+        <p>
+          C++ изпозва
+          <a
+            href="https://emscripten.org/docs/introducing_emscripten/index.html"
+            >Emscripten</a
+          >който най-често служи за пренасяне на съществуващи стари проекти към
+          WebAssembly, както и за компилиране на видео игри, които искаме да
+          работят в браузъра.
+        </p>
+        <br />
+        <p>
+          Rust изпозва
+          <a href="https://drager.github.io/wasm-pack/">wasm-pack</a>. Rust
+          използва wasm-pack. Rust предоставя най-добрата екосистема за
+          WebAssembly към момента на създаването на този реферат. Компилаторът
+          може директно да компилира Rust код до Wasm, а екосистемата включва
+          множество полезни библиотеки, като wasm-bindgen. Поради тези причини
+          ще използваме Rust, за да демонстрираме предимствата на Wasm с един
+          по-голям пример. Примерът ще бъде Solver на известната игра 8-puzzle:
+        </p>
+        <article id="board-wrapper">
+          <div id="board">
+            <div id="cell-1" class="cell"></div>
+            <div id="cell-2" class="cell"></div>
+            <div id="cell-3" class="cell"></div>
+            <div id="cell-4" class="cell"></div>
+            <div id="cell-5" class="cell"></div>
+            <div id="cell-6" class="cell"></div>
+            <div id="cell-7" class="cell"></div>
+            <div id="cell-8" class="cell"></div>
+            <div id="cell-9" class="cell"></div>
+          </div>
+          <div id="btns">
+            <button id="shuffle-board-btn">Разбъркай</button>
+            <button id="solve-board-btn">Реши</button>
+          </div>
+        </article>
       </section>
     </main>
-    <footer>footer here</footer>
+    <footer>
+      <p>
+        Целият код е достъпен в
+        <a href="https://github.com/lastvoidtemplar/web-referat">Github</a> за
+        тези, които искат да разгледат javascript или rust кода.
+      </p>
+      <p>Авторът не е виновен, ако браузърът или устройството ви хвърли боба</p>
+      <p></p>
+    </footer>
   </body>
 </html>
