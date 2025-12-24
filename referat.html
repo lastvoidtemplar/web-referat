@@ -78,7 +78,7 @@
         <br />
         <p>
           WebAssembly е отворен стандарт, който се подържа от
-          <a href="https://www.w3.org/community/webassembly/"
+          <a href="https://www.w3.org/community/webassembly/" target="_blank"
             >W3C Community Group</a
           >
         </p>
@@ -94,7 +94,7 @@
               <b>Безопасен</b> - кодът се валидира и изпълнява изолирана среда,
               която предовратява повреда на данните и пробиви в сигурността
             </li>
-            <li>Добре дефиниран - форматът е формално дефиниран</li>
+            <li><b>Добре дефиниран</b> - форматът е формално дефиниран</li>
             <li>
               <b>Хардуерна независим</b> - може да бъде компилиран на всички
               съвременни архитектури, включително за мобилни устройства и
@@ -197,13 +197,13 @@
               съдържат адреси на регистри
             </li>
             <li>
-              <b>Лесно генериране код от езици от по-високо ниво</b> - Повечето
+              <b>Лесно генериране код от езици от по-високо ниво</b> - повечето
               езици за програмиране използват локални променливи и изрази, които
-              естествено се съхраняват върху стек.
+              естествено се съхраняват върху стек
             </li>
             <li>
               <b>Хардуернa независимост</b> - не е нужно да съобразява с
-              регистровата организация на процесора.
+              регистровата организация на процесора
             </li>
             <li>
               <b>По-лесна валидация на кода</b> - улеснява се проверката за
@@ -240,8 +240,8 @@
           <h4>Предимства</h4>
           <ul>
             <li>
-              <b>Лесен за имплементация</b> - Лесно се имплементира в броузър и
-              други среди, както и улеснява работата на компилаторите.
+              <b>Лесен за имплементация</b> - лесно се имплементира в броузър и
+              други среди, както и улеснява работата на компилаторите
             </li>
             <li>
               <b>Лесно преносим</b> - една и съща структура за всеки процесор за
@@ -249,7 +249,7 @@
             </li>
             <li>
               <b>Бърз</b> - адресите се смятат директно, докато във paged memory
-              виртуалните адреси трябва да се преведат до реалните.
+              виртуалните адреси трябва да се преведат до реалните
             </li>
             <li>
               <b>Подходящ за системни езици</b> - въпреки, че една от целите
@@ -269,7 +269,7 @@
             <li>
               <b>Задрунено многонишково програмиране</b> - нишките в Wasm имат
               от нуждаят от SharedArrayBuffer, което е изключено по подразбиране
-              в модерните броузъри.
+              в модерните броузъри
             </li>
           </ul>
         </article>
@@ -318,9 +318,12 @@
             i32 и i64 представляват съответно 32-битово и 64-битово цяло число
             (interger - от там i32 - integer 32 bits). f32 и f64 представляват
             съответно 32-битово и 64-битово число с плаваща запетая описани в
-            <a href="https://ieeexplore.ieee.org/document/8766229">IEEE 754</a>.
-            i32 се използва като ykaзател понеже Wasm 1.0 има 32-битово адресно
-            постанство.
+            <a
+              href="https://ieeexplore.ieee.org/document/8766229"
+              target="_blank"
+              >IEEE 754</a
+            >. i32 се използва като ykaзател понеже Wasm 1.0 има 32-битово
+            адресно постанство.
           </p>
           <br />
           <h4>Functions</h4>
@@ -359,7 +362,7 @@
             host средата. Импортовете позволяват на Wasm да използва функции и
             данни предоставени от host средата , докато експортовете позволяват
             host средата да вика функции декларирани в Wasm. Пример за импорт би
-            било функция, която дава достъп на WebAssembly да DOM-а, докато
+            било функция, която дава достъп на WebAssembly до DOM-а, докато
             пример за експорт би бил някой алгоритъм, който е написан на Wasm с
             цел бързо изпълнение като звукова или видео обработка
           </p>
@@ -982,7 +985,7 @@
           но също можем да забележим, че кода става доста труден за четене дори
           за прости програми с една или две функции. На практика почти никой не
           пише Wasm на ръка. Вместо това използват други езици, които могат да
-          се компилират да WebAssembly. В момента за почти всеки от известените
+          се компилират до WebAssembly. В момента за почти всеки от известените
           езици съществува компилатор за Wasm, но езиците, които най-често се
           ползват са C++ и Rust.
         </p>
@@ -991,44 +994,88 @@
           C++ изпозва
           <a
             href="https://emscripten.org/docs/introducing_emscripten/index.html"
+            target="_blank"
             >Emscripten</a
-          >който най-често служи за пренасяне на съществуващи стари проекти към
-          WebAssembly, както и за компилиране на видео игри, които искаме да
-          работят в браузъра.
+          >, който най-често служи за пренасяне на съществуващи стари проекти
+          към WebAssembly (пример <b>Web AutoCAD</b>), както и за компилиране на
+          видео игри, които искаме да работят в браузъра (пример
+          <a href="https://tza.red/" target="_blank">Tzared</a>).
         </p>
         <br />
         <p>
           Rust изпозва
-          <a href="https://drager.github.io/wasm-pack/">wasm-pack</a>. Rust
-          използва wasm-pack. Rust предоставя най-добрата екосистема за
-          WebAssembly към момента на създаването на този реферат. Компилаторът
-          може директно да компилира Rust код до Wasm, а екосистемата включва
-          множество полезни библиотеки, като wasm-bindgen. Поради тези причини
-          ще използваме Rust, за да демонстрираме предимствата на Wasm с един
-          по-голям пример. Примерът ще бъде Solver на известната игра 8-puzzle:
+          <a href="https://drager.github.io/wasm-pack/" target="_blank"
+            >wasm-pack</a
+          >
+          и предоставя най-добрата екосистема за WebAssembly към момента на
+          създаването на този реферат. Компилаторът може директно да компилира
+          Rust код до Wasm, а екосистемата включва множество полезни библиотеки,
+          като wasm-bindgen. Поради тези причини ще използваме Rust, за да
+          демонстрираме предимствата на Wasm с един по-голям пример. Примерът ще
+          бъде Solver на известната игра 8-puzzle.
         </p>
-        <article id="board-wrapper">
-          <div id="board">
-            <div id="cell-1" class="cell"></div>
-            <div id="cell-2" class="cell"></div>
-            <div id="cell-3" class="cell"></div>
-            <div id="cell-4" class="cell"></div>
-            <div id="cell-5" class="cell"></div>
-            <div id="cell-6" class="cell"></div>
-            <div id="cell-7" class="cell"></div>
-            <div id="cell-8" class="cell"></div>
-            <div id="cell-9" class="cell"></div>
+        <br />
+        <p>
+          С цел рефератът да не стане много натруфен,
+          <a
+            href="https://github.com/lastvoidtemplar/web-referat/blob/master/examples/rust/8-puzzle"
+            target="_blank"
+            >Rust кодът ще е достъпен в Github</a
+          >. Командата:
+        </p>
+        <pre><code>$ wasm-pack build --release --target web</code></pre>
+        <p>
+          компилираме Rust до Wasm и генерира няколко помощни JavaScript
+          функции. За справка
+          <a
+            href="https://github.com/lastvoidtemplar/web-referat/blob/master/examples/rust/8-puzzle/src/lib.rs"
+            target="_blank"
+          >
+            215 реда Rust код</a
+          >
+          са еквивалентни на
+          <a
+            href="https://github.com/lastvoidtemplar/web-referat/blob/master/examples/rust/8-puzzle/pkg/eight_puzzle_bg.wat"
+            target="_blank"
+            >13000 реда Wat код. </a
+          >(генерирани чрез
+          <a href="https://github.com/WebAssembly/wabt" target="_blank"
+            >wasm2wat</a
+          >).
+        </p>
+        <br />
+        <p>Форма 4 демонстрира компилирания до Wasm код от <a
+            href="https://github.com/lastvoidtemplar/web-referat/blob/master/examples/rust/8-puzzle"
+            target="_blank"
+            >Github</a
+          ></p>
+        <br />
+
+        <figure id="form-4">
+          <div id="board-wrapper">
+            <div id="board">
+              <div id="cell-1" class="cell"></div>
+              <div id="cell-2" class="cell"></div>
+              <div id="cell-3" class="cell"></div>
+              <div id="cell-4" class="cell"></div>
+              <div id="cell-5" class="cell"></div>
+              <div id="cell-6" class="cell"></div>
+              <div id="cell-7" class="cell"></div>
+              <div id="cell-8" class="cell"></div>
+              <div id="cell-9" class="cell"></div>
+            </div>
+            <div id="btns">
+              <button id="shuffle-board-btn">Разбъркай</button>
+              <button id="solve-board-btn">Реши</button>
+            </div>
           </div>
-          <div id="btns">
-            <button id="shuffle-board-btn">Разбъркай</button>
-            <button id="solve-board-btn">Реши</button>
-          </div>
-        </article>
+          <figcaption>Форма 4 - 8-puzzle</figcaption>
+        </figure>
       </section>
       <hr />
       <section>
         <h2>Източници</h2>
-        <ul>
+        <ol>
           <li>
             <a href="https://webassembly.github.io/spec/core/"
               >WebAssembly Spec</a
@@ -1047,20 +1094,22 @@
             >
           </li>
           <li>
-            <a href="https://drager.github.io/wasm-pack">Документацията на wasm-pack</a>
+            <a href="https://drager.github.io/wasm-pack"
+              >Документацията на wasm-pack</a
+            >
           </li>
-        </ul>
+        </ol>
       </section>
-      <br>
+      <br />
     </main>
     <footer>
+      <p>За създаването на реферата е използван AI само за избирането на цветовата палитра</p>
       <p>
         Целият код е достъпен в
         <a href="https://github.com/lastvoidtemplar/web-referat">Github</a> за
         тези, които искат да разгледат javascript или rust кода.
       </p>
       <p>Авторът не е виновен, ако браузърът или устройството ви хвърли боба</p>
-      <p></p>
     </footer>
   </body>
 </html>

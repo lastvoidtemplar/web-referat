@@ -9,8 +9,9 @@ async function init() {
 
   const url = new URL(PRINT_ADD_PATH, import.meta.url);
   try {
-    const module = fetch(url);
-    const { instance } = await WebAssembly.instantiateStreaming(module, {
+    const module = await fetch(url);
+    const bytes = await module.arrayBuffer();
+    const { instance } = await WebAssembly.instantiate(bytes, {
       js: {
         print,
       },

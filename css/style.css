@@ -158,6 +158,10 @@ h6 {
   color: var(--heading-text-color);
 }
 
+h3 {
+  color: var(--main-highlight-color);
+}
+
 hr {
   width: 75%;
   margin-top: 1.5rem;
@@ -334,7 +338,7 @@ b {
 }
 
 #board-wrapper {
-  padding: 2rem;
+  padding: 0 2rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;

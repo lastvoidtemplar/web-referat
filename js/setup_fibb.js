@@ -9,12 +9,13 @@ async function init() {
 
   const url = new URL(FIBB_PATH, import.meta.url);
   try {
-    const module = fetch(url);
-    const { instance } = await WebAssembly.instantiateStreaming(module, {
+    const module = await fetch(url);
+    const bytes = await module.arrayBuffer();
+    const { instance } = await WebAssembly.instantiate(bytes, {
       js: {
         clear,
-        print
-      }
+        print,
+      },
     });
     nfibb = instance.exports.nfibb;
   } catch (error) {
@@ -24,15 +25,15 @@ async function init() {
 
 const fibbForm = document.getElementById("fibb-form");
 const resultOl = fibbForm.querySelector("ol#result");
-const fibbBtn = fibbForm.querySelector("button")
+const fibbBtn = fibbForm.querySelector("button");
 
 function clear() {
   resultOl.replaceChildren();
 }
 
 function print(fibb) {
-  const li = document.createElement("li")
-  li.innerText = `${fibb}`
+  const li = document.createElement("li");
+  li.innerText = `${fibb}`;
   resultOl.appendChild(li);
 }
 
